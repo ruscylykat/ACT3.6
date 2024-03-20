@@ -1,0 +1,216 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERMEDIATE</title>
+</head>
+<body>
+    <form name="circle">
+        <p>enter the diameter</p>
+        <button class="btn btn-style" id="btn" placeholder="calculate">start</button>
+        <br><h2>diameter</h2><input type="button" name="diameter" id="calculate">
+        <br><h2>radius</h2><input type="button" name="radius" id="cal-rad">
+        <br><h2>areas</h2><input type="button" name="areas" id="cal-ar">
+        <br><h2>circumference</h2><input type="button" name="circumference" id="cal-cir">
+        <button class="btn btn-style" id="reset"></button>
+    </form>
+    <script>
+        let diameter = document.getElementById("calculate")
+        let radius = document.getElementById("cal-rad")
+        let area = document.getElementById("cal-ar")
+        let circumference = document.getElementById("cal-cir")
+        let overAll = document.getElementById("btn")
+
+        overAll.addEventListener("click", () =>  {
+            let getValueDia = diameter.value
+            let getValueRad = getValue/2
+            let getValueAr = getValueRad * 3.14
+            let getValueCir = (2 * 3.14)*getValueAr
+            let allValue = getValueCir
+let display = diameter + radius + area + circumference
+            allValue.textcontent = display
+        });
+    </script>
+</body>
+</html> -->
+
+<!-- Here's the corrected version of your code:
+
+```html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERMEDIATE</title>
+        <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            margin-top: 20px;
+        }
+
+        input[type="number"] {
+            width: calc(100% - 80px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            width: 100px;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        span {
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        span.output {
+            padding: 10px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        #reset {
+            margin-top: 20px;
+            background-color: #dc3545;
+        }
+
+        #reset:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <form name="circle">
+        <p>Enter the diameter</p>
+        <input type="number" id="diameterInput">
+        <button class="btn btn-style" id="calculate">Calculate</button>
+        <br><h2>Diameter</h2><span id="diameterOutput"></span>
+        <br><h2>Radius</h2><span id="radiusOutput"></span>
+        <br><h2>Area</h2><span id="areaOutput"></span>
+        <br><h2>Circumference</h2><span id="circumferenceOutput"></span>
+        <button class="btn btn-style" id="reset">Reset</button>
+    </form>
+    <script>
+        document.getElementById("calculate").addEventListener("click", () => {
+            let getValueDia = parseFloat(document.getElementById("diameterInput").value);
+            let getValueRad = getValueDia / 2;
+            let getValueAr = Math.PI * Math.pow(getValueRad, 2);
+            let getValueCir = 2 * Math.PI * getValueRad;
+            
+            document.getElementById("diameterOutput").textContent = getValueDia;
+            document.getElementById("radiusOutput").textContent = getValueRad;
+            document.getElementById("areaOutput").textContent = getValueAr;
+            document.getElementById("circumferenceOutput").textContent = getValueCir;
+        });
+        
+        document.getElementById("reset").addEventListener("click", () => {
+            document.getElementById("diameterInput").value = "";
+            document.getElementById("diameterOutput").textContent = "";
+            document.getElementById("radiusOutput").textContent = "";
+            document.getElementById("areaOutput").textContent = "";
+            document.getElementById("circumferenceOutput").textContent = "";
+        });
+    </script>
+</body>
+</html>
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circle Calculator</title>
+    <style>
+        /* Your CSS styles here */
+    </style>
+</head>
+<body>
+    <form name="circle">
+        <p>Enter the diameter</p>
+        <input type="text" id="diameterInput">
+        <button class="btn btn-style" id="calculate">Calculate</button>
+        <br><h2>Diameter</h2><span id="diameterOutput"></span>
+        <br><h2>Radius</h2><span id="radiusOutput"></span>
+        <br><h2>Area</h2><span id="areaOutput"></span>
+        <br><h2>Circumference</h2><span id="circumferenceOutput"></span>
+        <button class="btn btn-style" id="reset">Reset</button>
+    </form>
+    <script>
+        document.getElementById("calculate").addEventListener("click", () => {
+            let getValueDia = document.getElementById("diameterInput").value.trim();
+            if (!isNaN(getValueDia) && Number.isInteger(parseFloat(getValueDia))) {
+                // Valid whole number
+                getValueDia = parseFloat(getValueDia);
+                let getValueRad = getValueDia / 2;
+                let getValueAr = Math.PI * Math.pow(getValueRad, 2);
+                let getValueCir = 2 * Math.PI * getValueRad;
+
+                document.getElementById("diameterOutput").textContent = "Diameter: " + getValueDia;
+                document.getElementById("radiusOutput").textContent = "Radius: " + getValueRad;
+                document.getElementById("areaOutput").textContent = "Area: " + getValueAr.toFixed(2);
+                document.getElementById("circumferenceOutput").textContent = "Circumference: " + getValueCir.toFixed(2);
+            } else {
+                alert("Please enter a valid whole number for the diameter.");
+                document.getElementById("diameterInput").value = "";
+                return;
+            }
+        });
+        
+        document.getElementById("reset").addEventListener("click", () => {
+            document.getElementById("diameterInput").value = "";
+            document.getElementById("diameterOutput").textContent = "";
+            document.getElementById("radiusOutput").textContent = "";
+            document.getElementById("areaOutput").textContent = "";
+            document.getElementById("circumferenceOutput").textContent = "";
+        });
+    </script>
+</body>
+</html> -->
+
+
+<!-- ``` -->
+
+<!-- Changes made:
+
+1. Added input type number for diameter input field.
+2. Changed button text from "start" to "Calculate".
+3. Used `parseFloat` to convert the diameter input value to a floating-point number.
+4. Corrected calculation of radius, area, and circumference.
+5. Used `Math.PI` for the value of π.
+6. Used `Math.pow()` for calculating the square of radius.
+7. Updated the display of calculated values in respective span elements.
+8. Added a reset button and functionality to clear input and output fields. -->
